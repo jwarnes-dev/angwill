@@ -1,11 +1,17 @@
-import { Component, Input, ViewEncapsulation  } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { ThreadedMessage } from '../models/threaded-message.model';
+import { ThreadedMessageComponent } from '../threaded-message/threaded-message.component';
 
 @Component({
   selector: 'willow-threaded-messages-list',
   templateUrl: './threaded-messages-list.component.html',
+  imports: [
+    CommonModule,
+    ThreadedMessageComponent
+  ],
   styleUrls: ['./threaded-messages-list.component.css'],
-  encapsulation: ViewEncapsulation.None 
+  encapsulation: ViewEncapsulation.None
 })
 export class ThreadedMessagesListComponent {
   @Input() messages: ThreadedMessage[] = [];

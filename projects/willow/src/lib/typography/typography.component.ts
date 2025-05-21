@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 export enum TypographyVariant {
@@ -16,6 +17,9 @@ export enum TypographyVariant {
 @Component({
   selector: 'willow-typography',
   templateUrl: './typography.component.html',
+  imports: [
+    CommonModule
+  ],
   styleUrls: ['./typography.component.scss']
 })
 export class TypographyComponent {

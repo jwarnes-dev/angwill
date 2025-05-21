@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 
 export interface Column {
@@ -19,6 +20,9 @@ export type SortDirection = 'asc' | 'desc' | null;
 @Component({
   selector: 'willow-table',
   templateUrl: './table.component.html',
+  imports: [
+    CommonModule
+  ],
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit {
@@ -48,8 +52,8 @@ export class TableComponent implements OnInit {
     const field = column.field;
 
     if (this.sortField === field) {
-      this.sortDirection = this.sortDirection === 'asc' ? 'desc' : 
-                          this.sortDirection === 'desc' ? null : 'asc';
+      this.sortDirection = this.sortDirection === 'asc' ? 'desc' :
+        this.sortDirection === 'desc' ? null : 'asc';
     } else {
       this.sortField = field;
       this.sortDirection = 'asc';

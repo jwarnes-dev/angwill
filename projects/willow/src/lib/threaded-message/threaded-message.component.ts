@@ -1,9 +1,13 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 import { ThreadedMessage } from '../models/threaded-message.model';
 
 @Component({
   selector: 'willow-threaded-message',
   templateUrl: './threaded-message.component.html',
+  imports: [
+    CommonModule
+  ],
   styleUrls: ['./threaded-message.component.scss'],
 
 })
@@ -23,7 +27,7 @@ export class ThreadedMessageComponent {
     return Boolean(this.message.attachments?.length);
   }
 
-  get attachments(): Array<{ name: string; url: string;}> {
+  get attachments(): Array<{ name: string; url: string; }> {
     return this.message.attachments || [];
   }
 
