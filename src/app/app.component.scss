@@ -1,0 +1,87 @@
+/* Text/willow/Body - Regular */
+.body {
+    font-family: var(--text-willow-family-body, "Roboto");
+    font-size: var(--text-willow-size-hidden-xs, 16px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: var(--text-willow-line-height-hidden-xs, 24px); /* 150% */
+    letter-spacing: -0.18px;
+  }
+  
+  /* Text/willow/Small - Regular */
+  .small {
+    font-family: var(--text-willow-family-body, "Roboto");
+    font-size: var(--text-willow-size-hidden-xxs, 12px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: var(--text-willow-line-height-hidden-xxs, 20px); /* 166.667% */
+  }
+  /* Text/willow/Link */
+  .link {
+    color: var(--text-Willow-color-link, #005589);
+    font-family: var(--text-willow-family-body, "Roboto");
+    font-size: var(--text-willow-size-hidden-xs, 16px);
+    font-style: normal;
+    font-weight: 500;
+    line-height: var(--text-willow-line-height-hidden-xxs, 20px); /* 125% */
+    text-decoration-line: underline;
+  }
+  
+  /* Text/willow/Display - Heavy */
+  .display {
+    font-family: var(--text-willow-family-title, "museo-slab");
+    font-size: var(--text-my-wellmark-size-hidden-xxl, 60px);
+    font-style: normal;
+    font-weight: 600;
+    line-height: var(--text-willow-line-height-hidden-xxl, 72px); /* 120% */
+    letter-spacing: -0.18px;
+  }
+  
+  
+  
+  /* Heading 1 */
+  .heading1 {
+    font-family: var(--text-family-title, "museo-slab");
+    font-size: var(--text-size-hidden-xl, 32px);
+    font-style: normal;
+    font-weight: 600;
+    line-height: var(--text-line-height-hidden-xl, 38px); /* 118.75% */
+  }
+  
+  /* Text/willow/Heading 2 */
+  .heading2 {
+    font-family: var(--text-willow-family-title, "museo-slab");
+    font-size: var(--text-willow-size-hidden-lg, 32px);
+    font-style: normal;
+    font-weight: 600;
+    line-height: var(--text-willow-line-height-hidden-lg, 38px); /* 118.75% */
+  }
+  /* Text/willow/Heading 3 */
+  .heading3 {
+    font-family: var(--text-willow-family-body, "Roboto");
+    font-size: var(--text-willow-size-hidden-md, 24px);
+    font-style: normal;
+    font-weight: 700;
+    line-height: var(--text-willow-line-height-hidden-md, 28px); /* 116.667% */
+  }
+  
+  /* Text/willow/Heading 4 */
+  .heading4 {
+    font-family: var(--text-willow-family-body, "Roboto");
+    font-size: var(--text-willow-size-hidden-s, 20px);
+    font-style: normal;
+    font-weight: 700;
+    line-height: var(--text-willow-line-height-hidden-xs, 24px); /* 120% */
+  }
+  
+  .heading5 {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  
+  .heading6 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.5;
+  }
