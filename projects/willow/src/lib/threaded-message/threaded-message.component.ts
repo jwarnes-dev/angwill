@@ -1,38 +1,32 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, computed, input, Input } from '@angular/core';
 import { ThreadedMessage } from '../models/threaded-message.model';
 
 @Component({
-  selector: 'willow-threaded-message',
-  templateUrl: './threaded-message.component.html',
-  imports: [
-    CommonModule
-  ],
-  styleUrls: ['./threaded-message.component.scss'],
-
+    selector: 'willow-threaded-message',
+    templateUrl: './threaded-message.component.html',
+    imports: [CommonModule],
+    styleUrls: ['./threaded-message.component.scss'],
 })
 export class ThreadedMessageComponent {
-  @Input() message!: ThreadedMessage;
+    message = input.required<ThreadedMessage>();
 
+    displayName = computed<string>(() =>
+        this.message().isRepresentative ? 'Wellmark Representative' : this.message().name
+    );
 
-  get displayName(): string {
-    return this.message.isRepresentative ? 'Wellmark Representative' : this.message.name;
-  }
+    isRepresentative = computed<boolean>(() => this.message().isRepresentative);
 
-  get isRepresentative(): boolean {
-    return this.message.isRepresentative;
-  }
+    hasAttachments = computed<boolean>(() => Boolean(this.message().attachments?.length));
 
-  get hasAttachments(): boolean {
-    return Boolean(this.message.attachments?.length);
-  }
+    attachments = computed<Array<{ name: string; url: string }>>(() => this.message().attachments || []);
 
-  get attachments(): Array<{ name: string; url: string; }> {
-    return this.message.attachments || [];
-  }
-
-  get formattedDate(): string {
-    const date = new Date(this.message.date);
-    return `${date.toLocaleString('en-US', { month: 'short', day: '2-digit', year: 'numeric' })} at ${date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true })}`;
-  }
+    formattedDate = computed<string>(() => {
+        const date = new Date(this.message().date);
+        return `${date.toLocaleString('en-US', {
+            month: 'short',
+            day: '2-digit',
+            year: 'numeric',
+        })} at ${date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true })}`;
+    });
 }

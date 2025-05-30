@@ -1,29 +1,29 @@
-<div class="threaded-message" [ngClass]="{'wellmark-rep': isRepresentative}">
-  <div class="row">
-    <div class="col-12">
-      <div class="info-block">
-        <div class="message-author">{{ displayName }}</div>
-        <div class="correspondence info">
-          Correspondence #: {{ message.correspondence }}
-        </div>
-        <div class="date info">
-          {{ formattedDate }}
-        </div>
-      </div>
-    </div>
-    <div class="col-12 pt-4">
-      <div class="message-block">
-        <p>{{ message.text }}</p>
-        <div *ngIf="hasAttachments" class="attachments-container">
-            <div *ngFor="let attachment of attachments">
-              <div class="attachment-item">
-                <a [href]="attachment.url" class="attachment-link" target="_blank">
-                  {{ attachment.name }}
-                </a>
-              </div>
+<div class="threaded-message" [ngClass]="{ 'wellmark-rep': isRepresentative }">
+    <div class="row">
+        <div class="col-12">
+            <div class="info-block">
+                <div class="message-author">{{ displayName() }}</div>
+                <div class="correspondence info">Correspondence #: {{ message().correspondence }}</div>
+                <div class="date info">
+                    {{ formattedDate() }}
+                </div>
             </div>
         </div>
-      </div>
+        <div class="col-12 pt-4">
+            <div class="message-block">
+                <p>{{ message().text }}</p>
+                @if(hasAttachments()) {
+                <div class="attachments-container">
+                    @for(attachment of attachments(); track attachment) {
+                    <div class="attachment-item">
+                        <a [href]="attachment.url" class="attachment-link" target="_blank">
+                            {{ attachment.name }}
+                        </a>
+                    </div>
+                    }
+                </div>
+                }
+            </div>
+        </div>
     </div>
-  </div>
 </div>
