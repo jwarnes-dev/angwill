@@ -13,10 +13,12 @@ import { FormSelectComponent } from './form-select/form-select.component';
 import { FormTextareaComponent } from './form-textarea/form-textarea.component';
 import { AlertComponent } from './alert/alert.component';
 import { ButtonComponent } from './button/button.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   imports: [
     CommonModule,
+    FontAwesomeModule,
     AngularWillowComponent,
     ThreadedMessagesListComponent,
     ThreadedMessageComponent,

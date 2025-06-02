@@ -1,11 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { ValidationMessage } from '../form-validation.service';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'willow-alert',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FontAwesomeModule],
   template: `
     <div class="wl-alert" *ngIf="messages?.length">
       <div
@@ -13,7 +15,7 @@ import { ValidationMessage } from '../form-validation.service';
         *ngFor="let msg of messages; index as i"
         (click)="onMessageClick(msg)"
       >
-        <span class="icon">&#xf06a;</span>
+        <fa-icon [icon]="warningIcon" class="icon"></fa-icon>
         <div class="msg">{{ msg.message }}</div>
       </div>
     </div>
@@ -28,8 +30,9 @@ import { ValidationMessage } from '../form-validation.service';
         padding: var(--spacing-willow-24, 24px);
         width: 100%;
         cursor: pointer;
-        background: var(--color-willow-blue---super-light, #f3f9ff);
         border-left: 4px solid var(--component-alerts-warning-highlight, #ffc345);
+        border-radius: 0px var(--corner-radius-willow-default, 2px) var(--corner-radius-willow-default, 2px) 0px;
+        background: var(--component-alerts-warning-fill, #FFFAEE);
       }
       .alert-row {
         display: flex;
@@ -56,6 +59,8 @@ import { ValidationMessage } from '../form-validation.service';
 export class AlertComponent {
   @Input() messages: ValidationMessage[] = [];
   @Output() messageClick = new EventEmitter<ValidationMessage>();
+
+  warningIcon = faTriangleExclamation;
 
   onMessageClick(msg: ValidationMessage): void {
     this.messageClick.emit(msg);

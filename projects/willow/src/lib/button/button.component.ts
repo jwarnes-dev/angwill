@@ -41,12 +41,21 @@ export type WillowButtonVariant = 'primary' | 'secondary' | 'tertiary';
         color: var(--component-button-willow-primary-dark-default-text, #fff);
       }
 
+      .primary:hover {
+        background: var(--component-button-willow-primary-dark-hover-fill, #0F3659);
+      }
+
       /* SECONDARY */
       .secondary {
         border: var(--component-button-willow-secondary-stroke-thickness, 2px)
           solid var(--component-button-willow-secondary-dark-default-stroke, #005589);
         background: var(--component-button-willow-secondary-dark-default-fill, #fff);
         color: var(--component-button-willow-secondary-dark-default-stroke, #005589);
+      }
+
+      .secondary:hover {
+        color: var(--component-button-willow-secondary-dark-hover-text, #0F3659);
+        border-color: var(--component-button-willow-secondary-dark-hover-text, #0F3659);
       }
 
       /* TERTIARY (link-style) */
@@ -60,6 +69,10 @@ export type WillowButtonVariant = 'primary' | 'secondary' | 'tertiary';
         background: var(--component-button-willow-destructive-default-fill, #b44242) !important;
         border-color: var(--component-button-willow-destructive-default-fill, #b44242) !important;
         color: var(--component-button-willow-destructive-text, #fff) !important;
+      }
+
+      .destructive:hover {
+        background: var(--component-button-willow-destructive-hover-fill, #862F2F) !important;
       }
 
       /* DISABLED */

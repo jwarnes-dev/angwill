@@ -6,6 +6,8 @@ import {
   OnInit,
 } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 
 export interface SelectOption {
   id: string | number;
@@ -15,7 +17,7 @@ export interface SelectOption {
 @Component({
   selector: 'willow-select',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FontAwesomeModule],
   template: `
     <label class="wl-label" *ngIf="label">
       {{ label }}<span class="asterisk" *ngIf="required">*</span>
@@ -24,7 +26,7 @@ export interface SelectOption {
     <select
       [formControl]="control"
       class="wl-select"
-      [ngClass]="{ error: control?.invalid && (control?.dirty || control?.touched) }"
+      [ngClass]="{ error: control.invalid && (control.dirty || control.touched) }"
     >
       <option value="" disabled selected *ngIf="placeholder">{{ placeholder }}</option>
       <option *ngFor="let option of options; trackBy: trackById" [ngValue]="option.id">
@@ -34,9 +36,9 @@ export interface SelectOption {
 
     <div
       class="error-msg"
-      *ngIf="control?.invalid && (control?.dirty || control?.touched)"
+      *ngIf="showErrors && control?.invalid"
     >
-      <span class="icon">&#xf071;</span>
+      <fa-icon [icon]="warningIcon" class="icon"></fa-icon>
       <span>{{ errorText }}</span>
     </div>
   `,
@@ -61,7 +63,7 @@ export interface SelectOption {
       }
       .wl-select {
         width: 100%;
-        padding: 8px;
+        padding: 20px 16px;
         border-radius: var(--component-forms-willow-input-corner-radius, 2px);
         border: 2px solid var(--component-forms-willow-field-default-stroke, #757575);
         background: var(--component-forms-willow-field-default-fill, #fff);
@@ -96,6 +98,9 @@ export class FormSelectComponent implements OnInit {
   @Input() options: SelectOption[] = [];
   @Input() errorText = 'Please select a value';
   @Input() placeholder?: string;
+  @Input() showErrors = false;
+
+  warningIcon = faTriangleExclamation;
 
   ngOnInit(): void {
     if (!this.control) {

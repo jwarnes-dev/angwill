@@ -71,22 +71,26 @@ export class AppComponent {
 
   errorMessages: ErrorMessagesConfig = {
     test: {
-      required: 'please enter a value'
+      required: 'Please enter a value'
     },
     group1: {
-      required: 'please select a value'
+      required: 'Please select a value'
     },
     textarea: {
-      required: 'please enter text'
+      required: 'Please enter text'
     },
     checkGroup: {
-      required: 'please select at least one option'
+      required: 'Please select at least one option'
     }
   };
 
   alertMessages: ValidationMessage[] = [];
 
+  submitted = false;
+
   onSubmit() {
+    this.submitted = true;
+    this.form.markAllAsTouched();
     if (this.form.invalid) {
       this.alertMessages = this.validator.validateForm(
         this.form,

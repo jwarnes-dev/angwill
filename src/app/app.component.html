@@ -9,35 +9,41 @@
 
 <form [formGroup]="form" (ngSubmit)="onSubmit()" style="display: flex; flex-direction: column; gap: 24px; max-width: 600px;">
   <willow-input
-    label="Input (required)"
+    label="Input"
     [control]="$any(form.controls['test'])"
     [required]="true"
+    [showErrors]="submitted"
   ></willow-input>
 
   <willow-select
-    label="Select (required)"
+    label="Select"
     [control]="$any(form.controls['group1'])"
     [options]="selectValues"
     placeholder="Choose..."
     [required]="true"
+    [showErrors]="submitted"
+    style="min-width: 635px;"
   ></willow-select>
 
   <willow-textarea
-    label="Textarea (required)"
+    label="Textarea"
     [control]="$any(form.controls['textarea'])"
     [rows]="4"
     [required]="true"
+    [showErrors]="submitted"
+    style="min-width: 600px;"
   ></willow-textarea>
 
   <willow-checkbox-list
-    label="Checkbox List (required)"
+    label="Checkbox List"
     [control]="$any(form.controls['checkGroup'])"
     [options]="checkboxValues"
-    [required]="true"
+    [required]="false"
+    [showErrors]="submitted"
   ></willow-checkbox-list>
 
 
-  <willow-button type="submit" variant="primary">Submit</willow-button>
+  <willow-button htmlType="submit" variant="primary">Submit</willow-button>
 </form>
 
 <hr />

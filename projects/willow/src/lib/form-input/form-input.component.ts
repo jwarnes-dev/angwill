@@ -6,11 +6,13 @@ import {
   ChangeDetectionStrategy,
 } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'willow-input',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FontAwesomeModule],
   template: `
     <label class="wl-label" *ngIf="label">
       {{ label }}<span class="asterisk" *ngIf="required">*</span>
@@ -20,15 +22,14 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
       [attr.type]="type"
       [formControl]="control"
       class="wl-input"
-      [ngClass]="{ error: control?.invalid && (control?.dirty || control?.touched) }"
+      [ngClass]="{ error: control.invalid && (control.dirty || control.touched) }"
     />
 
     <div
       class="error-msg"
-      *ngIf="control?.invalid && (control?.dirty || control?.touched)"
+      *ngIf="showErrors && control?.invalid"
     >
-      <span class="icon">&#xf071;</span>
-      <!-- font awesome exclamation-triangle -->
+      <fa-icon [icon]="warningIcon" class="icon"></fa-icon>
       <span>{{ errorText }}</span>
     </div>
   `,
@@ -53,10 +54,9 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
       }
       .wl-input {
         width: 100%;
-        padding: 8px;
+        padding: 20px 16px;
         border-radius: var(--component-forms-willow-input-corner-radius, 2px);
-        border: 2px solid
-          var(--component-forms-willow-field-default-stroke, #757575);
+        border: 2px solid var(--component-forms-willow-field-default-stroke, #757575);
         background: var(--component-forms-willow-field-default-fill, #fff);
         font-family: var(--text-family-body, Roboto);
         font-size: 16px;
@@ -97,6 +97,11 @@ export class FormInputComponent implements OnInit {
 
   /** HTML input type */
   @Input() type: 'text' | 'number' | 'tel' | 'email' | 'password' = 'text';
+
+  /** Flag from parent to show errors */
+  @Input() showErrors = false;
+
+  warningIcon = faTriangleExclamation;
 
   /** Optional custom error message string */
   @Input() errorText = 'Invalid value';

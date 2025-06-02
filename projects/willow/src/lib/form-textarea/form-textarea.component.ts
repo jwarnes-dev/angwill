@@ -1,11 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'willow-textarea',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FontAwesomeModule],
   template: `
     <label class="wl-label" *ngIf="label">
       {{ label }}<span class="asterisk" *ngIf="required">*</span>
@@ -15,14 +17,14 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
       class="wl-textarea"
       [attr.rows]="rows"
       [formControl]="control"
-      [ngClass]="{ error: control?.invalid && (control?.dirty || control?.touched) }"
+      [ngClass]="{ error: control.invalid && (control.dirty || control.touched) }"
     ></textarea>
 
     <div
       class="error-msg"
-      *ngIf="control?.invalid && (control?.dirty || control?.touched)"
+      *ngIf="showErrors && control?.invalid"
     >
-      <span class="icon">&#xf071;</span>
+      <fa-icon [icon]="warningIcon" class="icon"></fa-icon>
       <span>{{ errorText }}</span>
     </div>
   `,
@@ -47,7 +49,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
       }
       .wl-textarea {
         width: 100%;
-        padding: 8px;
+        padding: 20px 16px;
         border-radius: var(--component-forms-willow-input-corner-radius, 2px);
         border: 2px solid var(--component-forms-willow-field-default-stroke, #757575);
         background: var(--component-forms-willow-field-default-fill, #fff);
@@ -81,6 +83,9 @@ export class FormTextareaComponent implements OnInit {
   @Input() required = false;
   @Input() errorText = 'Please enter a value';
   @Input() rows = 4;
+  @Input() showErrors = false;
+
+  warningIcon = faTriangleExclamation;
 
   ngOnInit(): void {
     if (!this.control) {

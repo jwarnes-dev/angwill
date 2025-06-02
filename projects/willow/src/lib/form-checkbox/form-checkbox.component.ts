@@ -6,6 +6,8 @@ import {
   OnInit,
 } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
 
 export interface CheckboxOption {
   id: string | number;
@@ -15,7 +17,7 @@ export interface CheckboxOption {
 @Component({
   selector: 'willow-checkbox-list',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FontAwesomeModule],
   template: `
     <label class="wl-label" *ngIf="label">
       {{ label }}<span class="asterisk" *ngIf="required">*</span>
@@ -24,7 +26,7 @@ export interface CheckboxOption {
     <div
       class="checkbox-list"
       [ngClass]="{
-        error: control?.invalid && (control?.dirty || control?.touched)
+        error: control.invalid && (control.dirty || control.touched)
       }"
     >
       <label
@@ -44,9 +46,9 @@ export interface CheckboxOption {
 
     <div
       class="error-msg"
-      *ngIf="control?.invalid && (control?.dirty || control?.touched)"
+      *ngIf="showErrors && control?.invalid"
     >
-      <span class="icon">&#xf071;</span>
+      <fa-icon [icon]="warningIcon" class="icon"></fa-icon>
       <span>{{ errorText }}</span>
     </div>
   `,
@@ -137,6 +139,9 @@ export class FormCheckboxComponent implements OnInit {
   @Input() required = false;
   @Input() options: CheckboxOption[] = [];
   @Input() errorText = 'Please select a value';
+  @Input() showErrors = false;
+
+  warningIcon = faTriangleExclamation;
 
   ngOnInit(): void {
     if (!this.control) {
