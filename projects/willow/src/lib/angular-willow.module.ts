@@ -12,6 +12,7 @@ import { FormCheckboxComponent } from './form-checkbox/form-checkbox.component';
 import { FormSelectComponent } from './form-select/form-select.component';
 import { FormTextareaComponent } from './form-textarea/form-textarea.component';
 import { AlertComponent } from './alert/alert.component';
+import { ButtonComponent } from './button/button.component';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { AlertComponent } from './alert/alert.component';
     FormCheckboxComponent,
     FormSelectComponent,
     FormTextareaComponent,
-    AlertComponent
+    AlertComponent,
+    ButtonComponent
   ],
   exports: [
     AngularWillowComponent,
@@ -41,7 +43,8 @@ import { AlertComponent } from './alert/alert.component';
     FormCheckboxComponent,
     FormSelectComponent,
     FormTextareaComponent,
-    AlertComponent
+    AlertComponent,
+    ButtonComponent
   ]
 })
 export class AngularWillowModule { }

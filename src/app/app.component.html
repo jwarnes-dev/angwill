@@ -1,4 +1,59 @@
 <h1>Willow Demo/Development</h1>
 
-<h2>Threaded Message</h2>
+<h2>Kitchen-Sink Form Demo</h2>
+
+<willow-alert
+  [messages]="alertMessages"
+  (messageClick)="focusField($event)"
+></willow-alert>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()" style="display: flex; flex-direction: column; gap: 24px; max-width: 600px;">
+  <willow-input
+    label="Input (required)"
+    [control]="$any(form.controls['test'])"
+    [required]="true"
+  ></willow-input>
+
+  <willow-select
+    label="Select (required)"
+    [control]="$any(form.controls['group1'])"
+    [options]="selectValues"
+    placeholder="Choose..."
+    [required]="true"
+  ></willow-select>
+
+  <willow-textarea
+    label="Textarea (required)"
+    [control]="$any(form.controls['textarea'])"
+    [rows]="4"
+    [required]="true"
+  ></willow-textarea>
+
+  <willow-checkbox-list
+    label="Checkbox List (required)"
+    [control]="$any(form.controls['checkGroup'])"
+    [options]="checkboxValues"
+    [required]="true"
+  ></willow-checkbox-list>
+
+
+  <willow-button type="submit" variant="primary">Submit</willow-button>
+</form>
+
+<hr />
+
+<h2>Threaded Message Demo</h2>
 <willow-threaded-messages-list [messages]="threadedMessages"></willow-threaded-messages-list>
+
+<hr />
+
+<h2>Buttons</h2>
+<div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;">
+  <willow-button variant="primary">Primary</willow-button>
+  <willow-button variant="secondary">Secondary</willow-button>
+  <willow-button variant="tertiary">Tertiary</willow-button>
+  <willow-button variant="primary" [destructive]="true">Destructive</willow-button>
+  <willow-button variant="primary" [disabled]="true">Disabled</willow-button>
+</div>
+
+<hr />

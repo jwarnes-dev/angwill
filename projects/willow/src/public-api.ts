@@ -18,3 +18,4 @@ export * from './lib/form-checkbox/form-checkbox.component';
 export * from './lib/form-select/form-select.component';
 export * from './lib/form-textarea/form-textarea.component';
 export * from './lib/alert/alert.component';
+export * from './lib/button/button.component';
