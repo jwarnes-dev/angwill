@@ -1,0 +1,90 @@
+import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+
+@Component({
+  selector: 'willow-textarea',
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
+  template: `
+    <label class="wl-label" *ngIf="label">
+      {{ label }}<span class="asterisk" *ngIf="required">*</span>
+    </label>
+
+    <textarea
+      class="wl-textarea"
+      [attr.rows]="rows"
+      [formControl]="control"
+      [ngClass]="{ error: control?.invalid && (control?.dirty || control?.touched) }"
+    ></textarea>
+
+    <div
+      class="error-msg"
+      *ngIf="control?.invalid && (control?.dirty || control?.touched)"
+    >
+      <span class="icon">&#xf071;</span>
+      <span>{{ errorText }}</span>
+    </div>
+  `,
+  styles: [
+    `
+      :host {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        width: 100%;
+        align-items: flex-start;
+      }
+      .wl-label {
+        color: #4b4c4d;
+        font-family: var(--text-family-body, Roboto);
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 24px;
+      }
+      .asterisk {
+        color: var(--component-forms-willow-required-asterisk, #b44242);
+      }
+      .wl-textarea {
+        width: 100%;
+        padding: 8px;
+        border-radius: var(--component-forms-willow-input-corner-radius, 2px);
+        border: 2px solid var(--component-forms-willow-field-default-stroke, #757575);
+        background: var(--component-forms-willow-field-default-fill, #fff);
+        font-family: var(--text-family-body, Roboto);
+        font-size: 16px;
+      }
+      .wl-textarea.error {
+        border-color: var(--component-forms-myWellmark-field-error-stroke, #b44242);
+      }
+      .error-msg {
+        color: var(--component-alerts-error-highlight, #b44242);
+        font-family: var(--text-family-body, Roboto);
+        font-size: 16px;
+        line-height: 22.8px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .icon {
+        font-family: 'Font Awesome 6 Pro';
+        font-weight: 900;
+        font-size: 18px;
+      }
+    `,
+  ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class FormTextareaComponent implements OnInit {
+  @Input() label = '';
+  @Input() control!: FormControl;
+  @Input() required = false;
+  @Input() errorText = 'Please enter a value';
+  @Input() rows = 4;
+
+  ngOnInit(): void {
+    if (!this.control) {
+      throw new Error('FormTextareaComponent requires a FormControl instance via [control] input.');
+    }
+  }
+} 
