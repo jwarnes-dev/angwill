@@ -1,0 +1,30 @@
+.app-header {
+  height: 58px;
+  background: #f3f9ff;
+  margin-bottom: 52px;
+  width: 100%;
+}
+
+.header-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 30px;
+}
+
+.header-link {
+  font-family: var(--text-family-body, Roboto);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: var(--text-line-height-28, 28px);
+  letter-spacing: -0.032px;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  color: #005589;
+} 
+
+.header-nav {
+  gap: 16px;
+}

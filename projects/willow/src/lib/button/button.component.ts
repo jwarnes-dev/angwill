@@ -61,7 +61,26 @@ export type WillowButtonVariant = 'primary' | 'secondary' | 'tertiary';
       /* TERTIARY (link-style) */
       .tertiary {
         background: transparent;
-        color: var(--color-willow-blue, #4a7390);
+        color: var(--component-button-willow-tertiary-dark-default-text, #005589);
+        text-align: center;
+
+        /* Component/button/willow/Tertiary */
+        font-family: var(--text-family-body, Roboto);
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: var(--text-line-height-28, 28px); /* 155.556% */
+        letter-spacing: -0.032px;
+        text-decoration-line: underline;
+        text-decoration-style: solid;
+        text-decoration-skip-ink: auto;
+        text-decoration-thickness: auto;
+        text-underline-offset: auto;
+        text-underline-position: from-font;
+      }
+
+      .tertiary:hover {
+        color: var(--component-button-willow-tertiary-dark-hover-text, #0F3659);
       }
 
       /* DESTRUCTIVE overrides */

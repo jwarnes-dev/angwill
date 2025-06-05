@@ -9,6 +9,7 @@ import { FormCheckboxComponent, CheckboxOption } from '../../projects/willow/src
 import { AlertComponent } from '../../projects/willow/src/lib/alert/alert.component';
 import { FormValidationService, ErrorMessagesConfig, ValidationMessage } from '../../projects/willow/src/lib/form-validation.service';
 import { ButtonComponent } from '../../projects/willow/src/lib/button/button.component';
+import { HeaderComponent } from './header.component';
 
 
 @Component({
@@ -21,7 +22,8 @@ import { ButtonComponent } from '../../projects/willow/src/lib/button/button.com
     FormTextareaComponent,
     FormCheckboxComponent,
     AlertComponent,
-    ButtonComponent
+    ButtonComponent,
+    HeaderComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
@@ -42,14 +44,14 @@ export class AppComponent {
   title = '@wellmark/angular-willow';
   threadedMessages: ThreadedMessage[] = [
     {
-      name: 'Message 1 Name',
+      name: 'John Doe',
       date: '02/02/2025',
       text: 'This is the first message',
       isRepresentative: false,
       correspondence: '12345'
     },
     {
-      name: 'Message 2 Name',
+      name: 'Wellmark Representative',
       date: '02/02/2025',
       text: 'This is the second message',
       isRepresentative: true,

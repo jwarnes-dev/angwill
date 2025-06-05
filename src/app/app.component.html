@@ -1,65 +1,20 @@
-<h1>Willow Demo/Development</h1>
+<app-header></app-header>
 
-<h2>Kitchen-Sink Form Demo</h2>
+<div class="container">
+  <div class="row justify-content-center mb-3">
+    <div class="col-12" style="max-width: 1200px;">
+      <a href="#">&lt; Back to Inbox</a>
+      <h1 class="heading1">Message details</h1>
+      <willow-button variant="primary">Reply</willow-button>
+      <willow-button variant="tertiary">Archive</willow-button>
+    </div>
+  </div>
 
-<willow-alert
-  [messages]="alertMessages"
-  (messageClick)="focusField($event)"
-></willow-alert>
-
-<form [formGroup]="form" (ngSubmit)="onSubmit()" style="display: flex; flex-direction: column; gap: 24px; max-width: 600px;">
-  <willow-input
-    label="Input"
-    [control]="$any(form.controls['test'])"
-    [required]="true"
-    [showErrors]="submitted"
-  ></willow-input>
-
-  <willow-select
-    label="Select"
-    [control]="$any(form.controls['group1'])"
-    [options]="selectValues"
-    placeholder="Choose..."
-    [required]="true"
-    [showErrors]="submitted"
-    style="min-width: 635px;"
-  ></willow-select>
-
-  <willow-textarea
-    label="Textarea"
-    [control]="$any(form.controls['textarea'])"
-    [rows]="4"
-    [required]="true"
-    [showErrors]="submitted"
-    style="min-width: 600px;"
-  ></willow-textarea>
-
-  <willow-checkbox-list
-    label="Checkbox List"
-    [control]="$any(form.controls['checkGroup'])"
-    [options]="checkboxValues"
-    [required]="false"
-    [showErrors]="submitted"
-  ></willow-checkbox-list>
-
-
-  <willow-button htmlType="submit" variant="primary">Submit</willow-button>
-</form>
-
-<hr />
-
-<h2>Threaded Message Demo</h2>
-<willow-threaded-messages-list [messages]="threadedMessages"></willow-threaded-messages-list>
-
-<hr />
-
-<h2>Buttons</h2>
-<div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;">
-  <willow-button variant="primary">Primary</willow-button>
-  <willow-button variant="secondary">Secondary</willow-button>
-  <willow-button variant="tertiary">Tertiary</willow-button>
-  <willow-button variant="primary" [destructive]="true">Destructive</willow-button>
-  <willow-button variant="primary" [disabled]="true">Disabled</willow-button>
+  <div class="row justify-content-center">
+    <div class="col-12" style="max-width: 1200px;">
+      <div class="p-4" style="background: #ffffff;">
+        <willow-threaded-messages-list [messages]="threadedMessages"></willow-threaded-messages-list>
+      </div>
+    </div>
+  </div>
 </div>
-
-<hr />
