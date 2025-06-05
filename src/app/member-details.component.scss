@@ -1,0 +1,32 @@
+.member-details-card {
+  display: flex;
+  padding: var(--Card-padding, 36px);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-willow-24, 24px);
+  align-self: stretch;
+  color: #545454;
+
+  font-family: var(--text-family-body, Roboto);
+  font-size: var(--text-size-hidden-xs, 16px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: var(--text-line-height-24, 24px);
+  letter-spacing: -0.18px;
+  background: #FFFFFF;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 8px;
+  column-gap: 24px;
+  width: 100%;
+}
+
+.label {
+  font-weight: 600;
+  margin-right: 4px;
+  color: #000;
+} 

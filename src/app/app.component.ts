@@ -10,6 +10,7 @@ import { AlertComponent } from '../../projects/willow/src/lib/alert/alert.compon
 import { FormValidationService, ErrorMessagesConfig, ValidationMessage } from '../../projects/willow/src/lib/form-validation.service';
 import { ButtonComponent } from '../../projects/willow/src/lib/button/button.component';
 import { HeaderComponent } from './header.component';
+import { MemberDetailsComponent } from './member-details.component';
 
 
 @Component({
@@ -23,7 +24,8 @@ import { HeaderComponent } from './header.component';
     FormCheckboxComponent,
     AlertComponent,
     ButtonComponent,
-    HeaderComponent
+    HeaderComponent,
+    MemberDetailsComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
