@@ -12,3 +12,4 @@ export * from './lib/threaded-message/threaded-message.component';
 export * from './lib/threaded-messages-list/threaded-messages-list.component';
 export * from './lib/typography/typography.component';
 export * from './lib/upload-form/upload-form.component';
+export * from './lib/card/card.component';
