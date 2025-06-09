@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
+import { NgStyle } from '@angular/common';
+import { Component, input } from '@angular/core';
 
 @Component({
     selector: 'willow-card',
-    imports: [],
+    imports: [NgStyle],
     templateUrl: './card.component.html',
     styleUrl: './card.component.scss',
 })
-export class CardComponent {}
+export class CardComponent {
+    backgroundColor = input<string>('white');
+}
