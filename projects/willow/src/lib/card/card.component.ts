@@ -8,5 +8,5 @@ import { Component, input } from '@angular/core';
     styleUrl: './card.component.scss',
 })
 export class CardComponent {
-    backgroundColor = input<string>('white');
+    backgroundColor = input<string>('#FFF');
 }
