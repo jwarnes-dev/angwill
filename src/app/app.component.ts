@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { ThreadedMessage } from '../../dist/willow';
 import { ThreadedMessagesListComponent } from '../../projects/willow/src/public-api';
 import { FormBuilder, ReactiveFormsModule, Validators, FormGroup } from '@angular/forms';
@@ -11,11 +12,13 @@ import { FormValidationService, ErrorMessagesConfig, ValidationMessage } from '.
 import { ButtonComponent } from '../../projects/willow/src/lib/button/button.component';
 import { HeaderComponent } from './header.component';
 import { MemberDetailsComponent } from './member-details.component';
+import { UploadFormComponent } from '../../projects/willow/src/lib/upload-form/upload-form.component';
 
 
 @Component({
   selector: 'app-root',
   imports: [
+    CommonModule,
     ThreadedMessagesListComponent,
     ReactiveFormsModule,
     FormInputComponent,
@@ -25,7 +28,8 @@ import { MemberDetailsComponent } from './member-details.component';
     AlertComponent,
     ButtonComponent,
     HeaderComponent,
-    MemberDetailsComponent
+    MemberDetailsComponent,
+    UploadFormComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
@@ -40,6 +44,11 @@ export class AppComponent {
       group1: [null, Validators.required],
       textarea: ['', Validators.required],
       checkGroup: this.fb.control<any[]>([], Validators.required),
+    });
+
+    // Initialize reply form
+    this.replyForm = this.fb.group({
+      message: ['', Validators.required]
     });
   }
 
@@ -72,6 +81,10 @@ export class AppComponent {
   ];
 
   form!: FormGroup;
+  showReplyForm = false;
+  replyForm!: FormGroup;
+  replySubmitted = false;
+  replyAlertMessages: ValidationMessage[] = [];
 
   errorMessages: ErrorMessagesConfig = {
     test: {
@@ -92,6 +105,12 @@ export class AppComponent {
 
   submitted = false;
 
+  replyErrorMessages: ErrorMessagesConfig = {
+    message: {
+      required: 'Please enter your message'
+    }
+  };
+
   onSubmit() {
     this.submitted = true;
     this.form.markAllAsTouched();
@@ -102,11 +121,41 @@ export class AppComponent {
       );
     } else {
       this.alertMessages = [];
-      alert('Form submitted!');
     }
   }
 
   focusField(msg: ValidationMessage) {
+    this.validator.focusControl(msg.controlName);
+  }
+
+  showReply() {
+    this.showReplyForm = true;
+  }
+
+  sendReply() {
+    this.replySubmitted = true;
+    this.replyForm.markAllAsTouched();
+    
+    if (this.replyForm.invalid) {
+      this.replyAlertMessages = this.validator.validateForm(
+        this.replyForm,
+        this.replyErrorMessages
+      );
+    } else {
+      this.replyAlertMessages = [];
+      // Send reply to backend
+      this.cancelReply();
+    }
+  }
+
+  cancelReply() {
+    this.showReplyForm = false;
+    this.replyForm.reset();
+    this.replySubmitted = false;
+    this.replyAlertMessages = [];
+  }
+
+  focusReplyField(msg: ValidationMessage) {
     this.validator.focusControl(msg.controlName);
   }
 }

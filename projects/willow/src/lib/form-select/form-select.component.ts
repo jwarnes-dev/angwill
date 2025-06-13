@@ -34,6 +34,10 @@ export interface SelectOption {
       </option>
     </select>
 
+    <div class="hint-text" *ngIf="hint">
+      {{ hint }}
+    </div>
+
     <div
       class="error-msg"
       *ngIf="showErrors && control?.invalid"
@@ -73,6 +77,14 @@ export interface SelectOption {
       .wl-select.error {
         border-color: var(--component-forms-myWellmark-field-error-stroke, #b44242);
       }
+      .hint-text {
+        color: var(--component-forms-willow-field-text, #4B4C4D);
+        font-family: var(--text-family-body, Roboto);
+        font-size: var(--text-size-hidden-xxs, 12px);
+        font-style: normal;
+        font-weight: 400;
+        line-height: var(--text-line-height-hidden-xxs, 20px);
+      }
       .error-msg {
         color: var(--component-alerts-error-highlight, #b44242);
         font-family: var(--text-family-body, Roboto);
@@ -99,6 +111,9 @@ export class FormSelectComponent implements OnInit {
   @Input() errorText = 'Please select a value';
   @Input() placeholder?: string;
   @Input() showErrors = false;
+
+  /** Optional hint text to display below the select */
+  @Input() hint = '';
 
   warningIcon = faTriangleExclamation;
 

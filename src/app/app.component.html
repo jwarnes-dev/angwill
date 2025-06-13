@@ -5,8 +5,62 @@
     <div class="col-12" style="max-width: 1200px;">
       <a href="#">&lt; Back to Inbox</a>
       <h1>Message details</h1>
-      <willow-button variant="primary">Reply</willow-button>
-      <willow-button variant="tertiary">Archive</willow-button>
+      <willow-button variant="primary" (click)="showReply()" *ngIf="!showReplyForm">Reply</willow-button>
+      <willow-button variant="tertiary" *ngIf="!showReplyForm">Archive</willow-button>
+    </div>
+  </div>
+
+  <!-- Reply Form Section -->
+  <div class="row justify-content-center mb-4" *ngIf="showReplyForm">
+    <div class="col-12" style="max-width: 1200px;">
+      <div class="p-4" style="background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px;">
+        <!-- Form Validation Alerts -->
+        <div class="row" *ngIf="replyAlertMessages.length > 0">
+          <div class="col-12">
+            <willow-alert 
+              variant="error" 
+              [messages]="replyAlertMessages"
+              class="mb-3">
+            </willow-alert>
+          </div>
+        </div>
+
+        <form [formGroup]="replyForm" (ngSubmit)="sendReply()">
+          <div class="row">
+            <div class="col-12 mb-3">
+              <p class="form-message-hint">
+                Required fields are marked with an asterisk (<span class="form-message-asterisk">*</span>).
+              </p>
+              <willow-textarea
+                label="Your message"
+                [control]="$any(replyForm.get('message'))"
+                [required]="true"
+                [showErrors]="replySubmitted"
+                errorText="Please enter your message"
+                [rows]="6"
+                style="max-width: 1094px;"
+                hint="Describe your inquiry in as much detail as possible. Additional detail may allow Wellmark to resolve your matter sooner.">
+              </willow-textarea>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12 mb-3">
+              <label class="form-label" style="color: #4b4c4d; font-size: 16px;">Upload files</label>
+              <willow-upload-form></willow-upload-form>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12">
+              <div class="d-flex gap-2">
+                <willow-button variant="primary" type="submit">Send</willow-button>
+                <willow-button variant="tertiary" type="button" (click)="cancelReply()">Cancel</willow-button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 

@@ -25,6 +25,10 @@ import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
       [ngClass]="{ error: control.invalid && (control.dirty || control.touched) }"
     />
 
+    <div class="hint-text" *ngIf="hint">
+      {{ hint }}
+    </div>
+
     <div
       class="error-msg"
       *ngIf="showErrors && control?.invalid"
@@ -67,6 +71,14 @@ import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
           #b44242
         );
       }
+      .hint-text {
+        color: var(--component-forms-willow-field-text, #4B4C4D);
+        font-family: var(--text-family-body, Roboto);
+        font-size: var(--text-size-hidden-xxs, 12px);
+        font-style: normal;
+        font-weight: 400;
+        line-height: var(--text-line-height-hidden-xxs, 20px);
+      }
       .error-msg {
         color: var(--component-alerts-error-highlight, #b44242);
         font-family: var(--text-family-body, Roboto);
@@ -105,6 +117,9 @@ export class FormInputComponent implements OnInit {
 
   /** Optional custom error message string */
   @Input() errorText = 'Invalid value';
+
+  /** Optional hint text to display below the input */
+  @Input() hint = '';
 
   ngOnInit(): void {
     if (!this.control) {

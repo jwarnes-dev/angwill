@@ -20,6 +20,10 @@ import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
       [ngClass]="{ error: control.invalid && (control.dirty || control.touched) }"
     ></textarea>
 
+    <div class="hint-text" *ngIf="hint">
+      {{ hint }}
+    </div>
+
     <div
       class="error-msg"
       *ngIf="showErrors && control?.invalid"
@@ -59,6 +63,14 @@ import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
       .wl-textarea.error {
         border-color: var(--component-forms-myWellmark-field-error-stroke, #b44242);
       }
+      .hint-text {
+        color: var(--component-forms-willow-field-text, #4B4C4D);
+        font-family: var(--text-family-body, Roboto);
+        font-size: var(--text-size-hidden-xxs, 12px);
+        font-style: normal;
+        font-weight: 400;
+        line-height: var(--text-line-height-hidden-xxs, 20px);
+      }
       .error-msg {
         color: var(--component-alerts-error-highlight, #b44242);
         font-family: var(--text-family-body, Roboto);
@@ -84,6 +96,9 @@ export class FormTextareaComponent implements OnInit {
   @Input() errorText = 'Please enter a value';
   @Input() rows = 4;
   @Input() showErrors = false;
+
+  /** Optional hint text to display below the textarea */
+  @Input() hint = '';
 
   warningIcon = faTriangleExclamation;
 

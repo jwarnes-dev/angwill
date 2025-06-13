@@ -85,3 +85,34 @@
     font-weight: 600;
     line-height: 1.5;
   }
+
+  .form-message-hint {
+    color: var(--text-color-gray, #4B4C4D);
+  /* Small - Bold Italic */
+  font-family: var(--text-family-body, Roboto);
+  font-size: var(--text-size-hidden-xxs, 12px);
+  font-style: italic;
+  font-weight: 700;
+  line-height: var(--text-line-height-hidden-xxs, 20px); /* 166.667% */
+  }
+
+  .form-message-asterisk {
+    color: var(--text-color-error, #B44242);
+    color: var(--text-color-error, #B44242);
+    font-family: var(--text-family-body, Roboto);
+    font-size: var(--text-size-hidden-xxs, 12px);
+    font-style: italic;
+    font-weight: 700;
+    line-height: var(--text-line-height-hidden-xxs, 20px);
+  }
+
+  .form-label {
+    color: var(--text-color-gray, #4B4C4D);
+
+    /* Label */
+    font-family: var(--text-family-body, Roboto);
+    font-size: var(--text-size-hidden-xs, 16px);
+    font-style: normal;
+    font-weight: 700;
+    line-height: var(--text-line-height-hidden-m, 24px); /* 150% */
+  }
