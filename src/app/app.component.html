@@ -10,8 +10,16 @@
     </div>
   </div>
 
+
   <!-- Reply Form Section -->
   <div class="row justify-content-center mb-4" *ngIf="showReplyForm">
+            <!-- Alert Row -->
+            <div class="row justify-content-center mb-3" *ngIf="mockAlertMessages.length > 0">
+              <div class="col-12" style="max-width: 1200px;">
+                <willow-alert variant="error" [messages]="mockAlertMessages"></willow-alert>
+              </div>
+            </div>
+      
     <div class="col-12" style="max-width: 1200px;">
       <div class="p-4" style="background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px;">
         <!-- Form Validation Alerts -->

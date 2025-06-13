@@ -62,7 +62,7 @@ export class AppComponent {
       correspondence: '12345'
     },
     {
-      name: 'Wellmark Representative',
+      name: 'Wellmark Care Team',
       date: '02/02/2025',
       text: 'This is the second message',
       isRepresentative: true,
@@ -85,6 +85,10 @@ export class AppComponent {
   replyForm!: FormGroup;
   replySubmitted = false;
   replyAlertMessages: ValidationMessage[] = [];
+
+  mockAlertMessages: ValidationMessage[] = [
+    { controlName: 'message', message: 'Please enter a message' }
+  ];
 
   errorMessages: ErrorMessagesConfig = {
     test: {
