@@ -1,2 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 @use "willow-vars" as *;
+// @import 'bootstrap/scss/bootstrap'; 
+@import 'bootstrap/dist/css/bootstrap-grid.min.css';
+
+
+body {
+    background-color: var(--willow-body-color-gray, #f3f3f3);
+    margin: 0;
+    padding: 0;
+}

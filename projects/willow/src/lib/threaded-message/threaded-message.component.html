@@ -1,8 +1,8 @@
-<div class="threaded-message" [ngClass]="{ 'wellmark-rep': isRepresentative }">
+<div class="threaded-message" [ngClass]="isWellmarkRep()">
     <div class="row">
         <div class="col-12">
             <div class="info-block">
-                <div class="message-author">{{ displayName() }}</div>
+                <div class="message-author">{{ message().name }}</div>
                 <div class="correspondence info">Correspondence #: {{ message().correspondence }}</div>
                 <div class="date info">
                     {{ formattedDate() }}

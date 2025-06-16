@@ -9,4 +9,128 @@
   --text-Willow-color-gray: #4B4C4D;
   --text-Willow-color-blue: #4A7390;
   --text-Willow-color-link: #005589;
+  --component-alerts-warning-highlight: #FFC345;
+  --spacing-willow-24: 24px;
+  --spacing-willow-16: 16px;
+  --text-color-gray---default: #4B4C4D;
+  --component-forms-willow-input-corner-radius: 2px;
+  --component-forms-willow-field-default-stroke: #757575;
+  --component-forms-willow-field-default-fill: #FFF;
+  --component-forms-myWellmark-field-error-stroke: #B44242;
+  --component-forms-myWellmark-field-default-fill: #FFF;
+  --component-alerts-error-highlight: #B44242;
+  --component-forms-willow-required-asterisk: #B44242;
+  --text-family-body: Roboto;
+  --text-size-hidden-xs: 16px;
+  --text-line-height-hidden-m: 24px;
+  --icon-spacing-willow-spacing-xs: 8px;
+  --component-forms-willow-field-error-stroke: #B44242;
+  --component-button-willow-layout-top-bottom-padding: 12px;
+  --component-button-willow-layout-right-left-padding: 36px;
+  --component-button-willow-layout-icon-text-padding: 12px;
+  --component-button-willow-primary-dark-default-text: #FFF;
+  --component-button-willow-layout-corner-radius: 2px;
+  --component-button-willow-secondary-stroke-thickness: 2px;
+  --component-button-willow-secondary-dark-default-stroke: #005589;
+  --component-button-willow-secondary-dark-default-fill: #FFF;
+  --component-button-willow-destructive-default-fill: #B44242;
+  --component-button-willow-destructive-text: #FFF;
+  --component-button-willow-disabled-all-disabled-fill: #F2F2F3;
+  --component-button-willow-disabled-all-disabled-text: #4B4C4D;
+  --willow-body-color-gray: #f3f3f3;
+  --text-line-height-28: 28px;
 }
+
+
+/* Text/willow/Body - Regular */
+p,.body {
+  font-family: var(--text-willow-family-body, "Roboto");
+  font-size: var(--text-willow-size-hidden-xs, 16px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: var(--text-willow-line-height-hidden-xs, 24px); /* 150% */
+  letter-spacing: -0.18px;
+}
+
+/* Text/willow/Small - Regular */
+.small {
+  font-family: var(--text-willow-family-body, "Roboto");
+  font-size: var(--text-willow-size-hidden-xxs, 12px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: var(--text-willow-line-height-hidden-xxs, 20px); /* 166.667% */
+}
+/* Text/willow/Link */
+a,.link {
+  color: var(--text-Willow-color-link, #005589);
+  font-family: var(--text-willow-family-body, "Roboto");
+  font-size: var(--text-willow-size-hidden-xs, 16px);
+  font-style: normal;
+  font-weight: 500;
+  line-height: var(--text-willow-line-height-hidden-xxs, 19px); /* 125% */
+  text-decoration-line: underline;
+  cursor: pointer;
+}
+
+/* Text/willow/Display - Heavy */
+.display {
+  font-family: var(--text-willow-family-title, "museo-slab");
+  font-size: var(--text-my-wellmark-size-hidden-xxl, 60px);
+  font-style: normal;
+  font-weight: 600;
+  line-height: var(--text-willow-line-height-hidden-xxl, 72px); /* 120% */
+  letter-spacing: -0.18px;
+}
+
+
+
+/* Heading 1 */
+h1,.heading1 {
+  font-family: var(--text-family-title, "museo-slab");
+  font-size: var(--text-size-hidden-xl, 32px);
+  font-style: normal;
+  font-weight: 600;
+  line-height: var(--text-line-height-hidden-xl, 38px); /* 118.75% */
+}
+
+/* Text/willow/Heading 2 */
+h2,.heading2 {
+  font-family: var(--text-family-body, Roboto);
+  font-size: var(--text-size-hidden-lg, 24px);
+  font-style: normal;
+  font-weight: 700;
+  line-height: var(--text-line-height-hidden-lg, 28px); /* 116.667% */
+}
+/* Text/willow/Heading 3 */
+h3,.heading3 {
+  font-family: var(--text-family-body, Roboto);
+  font-size: var(--text-size-hidden-m, 20px);
+  font-style: normal;
+  font-weight: 700;
+  line-height: var(--text-line-height-hidden-m, 24px); /* 120% */
+}
+
+/* Text/willow/Heading 4 */
+h4,.heading4 {
+  font-family: var(--text-family-body, Roboto);
+  font-size: var(--text-size-hidden-s, 18px);
+  font-style: normal;
+  font-weight: 700;
+  line-height: var(--text-line-height-hidden-s, 20px); /* 111.111% */
+}
+
+h5,.heading5 {
+  font-family: var(--text-myWellmark-family-body, Roboto);
+  font-size: var(--text-size-hidden-xs, 16px);
+  font-style: normal;
+  font-weight: 700;
+  line-height: var(--text-line-height-hidden-s, 20px); /* 125% */
+}
+
+h6,.heading6 {
+  font-family: var(--text-myWellmark-family-body, Roboto);
+  font-size: var(--text-size-hidden-xs, 16px);
+  font-style: normal;
+  font-weight: 700;
+  line-height: var(--text-line-height-20, 20px); /* 125% */
+  }

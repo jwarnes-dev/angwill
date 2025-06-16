@@ -24,6 +24,13 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, @wellmark/angular-willow');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Message details');
+  });
+
+  it('should display mock alert message', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.textContent).toContain('Please enter a message');
   });
 });

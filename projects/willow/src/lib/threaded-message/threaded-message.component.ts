@@ -21,6 +21,8 @@ export class ThreadedMessageComponent {
 
     attachments = computed<Array<{ name: string; url: string }>>(() => this.message().attachments || []);
 
+    isWellmarkRep = computed<string>(() => this.message().isRepresentative ? 'wellmark-rep' : '');
+
     formattedDate = computed<string>(() => {
         const date = new Date(this.message().date);
         return `${date.toLocaleString('en-US', {

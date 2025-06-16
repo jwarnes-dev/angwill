@@ -1,0 +1,31 @@
+.upload-form {
+    display: flex;
+    padding: 8px 24px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex: 1 0 0;
+    align-self: stretch;
+    border-radius: var(--corner-radius-willow-default, 2px);
+    border: var(--stroke-default, 2px) dashed var(--color-full-palette-gray-600, #757575);
+    background: var(--background-willow-gray, #F2F2F3);
+    height: 230px;
+        
+}
+
+
+.upload-form p {
+    color: var(--text-color-gray, #4B4C4D);
+    text-align: center;
+
+    /* Small - Regular */
+    font-family: var(--text-family-body, Roboto);
+    font-size: var(--text-size-hidden-xxs, 12px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: var(--text-line-height-hidden-xxs, 20px); /* 166.667% */
+
+    padding: 0 0;
+    margin: 0 0;
+}
