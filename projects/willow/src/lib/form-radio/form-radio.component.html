@@ -1,0 +1,27 @@
+<div class="radio-container">
+    @if(label()){
+    <label class="wl-label"> {{ label() }} @if(required()){<span class="asterisk">*</span>} </label>
+    } @for(option of options(); track option) {
+    <div class="input-container">
+        <input
+            type="radio"
+            [formControl]="control()"
+            [ngClass]="{ error: control().invalid && (control().dirty || control().touched) }"
+            [id]="option"
+            [value]="option"
+            [attr.aria-required]="required()" />
+        <label [for]="option"> {{ option }} </label>
+    </div>
+
+    } @if(hint()) {
+    <div class="hint-text">
+        {{ hint() }}
+    </div>
+
+    } @if(showErrors() && control()?.invalid) {
+    <div class="error-msg">
+        <fa-icon [icon]="warningIcon" class="icon"></fa-icon>
+        <span>{{ errorText() }}</span>
+    </div>
+    }
+</div>

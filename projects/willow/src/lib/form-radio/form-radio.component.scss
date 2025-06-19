@@ -1,0 +1,43 @@
+.radio-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--icon-spacing-willow-spacing-xs);
+
+    .wl-label {
+        font-family: var(--text-willow-family-body, 'Roboto');
+        color: var(--text-color-gray---default);
+        font-style: normal;
+        font-weight: 700;
+        line-height: var(--text-line-height-hidden-m);
+        font-size: var(--text-willow-size-hidden-xs);
+    }
+
+    .input-container {
+        display: flex;
+        gap: var(--icon-spacing-willow-spacing-xs);
+        align-items: center;
+        align-self: stretch;
+
+        input[type='radio'] {
+            width: var(--spacing-willow-24);
+            height: var(--spacing-willow-24);
+            fill: var(--component-forms-willow-field-default-fill);
+            stroke-width: 2px;
+            stroke: var(--component-forms-willow-field-default-stroke);
+            margin: 0px;
+
+            &:checked::after {
+                color: var(--text-Willow-color-link);
+            }
+        }
+
+        label {
+            font-family: var(--text-willow-family-body, 'Roboto');
+            color: var(--text-color-gray---default);
+            font-style: normal;
+            font-weight: 400;
+            line-height: var(--text-line-height-hidden-m);
+            font-size: var(--text-willow-size-hidden-xs);
+        }
+    }
+}
