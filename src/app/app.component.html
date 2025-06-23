@@ -86,3 +86,26 @@
     </div>
   </div>
 </div>
+
+<!-- Radio Component Demo -->
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-12" style="max-width: 1200px;">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <willow-radio
+          label="Select an option"
+          [control]="$any(form.get('group1'))"
+          [required]="true"
+          [options]="radioOptions"
+          [showErrors]="submitted"
+          hint="This is a hint"
+          errorText="Please select an option">
+        </willow-radio>
+
+        <div class="mt-3">
+          <willow-button variant="primary" type="submit">Submit</willow-button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

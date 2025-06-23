@@ -39,6 +39,8 @@
   --component-button-willow-disabled-all-disabled-text: #4B4C4D;
   --willow-body-color-gray: #f3f3f3;
   --text-line-height-28: 28px;
+  --component-forms-willow-required-asterisk: #b44242;
+
 }
 
 
@@ -133,4 +135,17 @@ h6,.heading6 {
   font-style: normal;
   font-weight: 700;
   line-height: var(--text-line-height-20, 20px); /* 125% */
+  }
+  
+  .asterisk {
+    color: var(--component-forms-willow-required-asterisk, #b44242);
+  }
+  
+  .hint-text {
+    color: var(--component-forms-willow-field-text, #4B4C4D);
+    font-family: var(--text-family-body, Roboto);
+    font-size: var(--text-size-hidden-xxs, 12px);
+    font-style: normal;
+    font-weight: 400;
+    line-height: var(--text-line-height-hidden-xxs, 20px);
   }
