@@ -18,15 +18,13 @@ export class FormRadioComponent {
     errorText = input<string>('Please enter a value');
     showErrors = input<boolean>(false);
     options = input<string[]>([]);
-
-    /** Optional hint text to display below the textarea */
     hint = input<string>('');
 
     warningIcon = faTriangleExclamation;
 
     ngOnInit(): void {
         if (!this.control) {
-            throw new Error('FormTextareaComponent requires a FormControl instance via [control] input.');
+            throw new Error('FormRadioComponent requires a FormControl instance via [control] input.');
         }
     }
 }
