@@ -13,6 +13,7 @@ import { ButtonComponent } from '../../projects/willow/src/lib/button/button.com
 import { HeaderComponent } from './header.component';
 import { MemberDetailsComponent } from './member-details.component';
 import { UploadFormComponent } from '../../projects/willow/src/lib/upload-form/upload-form.component';
+import { FormRadioComponent } from '../../projects/willow/src/lib/form-radio/form-radio.component';
 
 
 @Component({
@@ -29,7 +30,8 @@ import { UploadFormComponent } from '../../projects/willow/src/lib/upload-form/u
     ButtonComponent,
     HeaderComponent,
     MemberDetailsComponent,
-    UploadFormComponent
+    UploadFormComponent,
+    FormRadioComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
@@ -114,6 +116,8 @@ export class AppComponent {
       required: 'Please enter your message'
     }
   };
+
+  radioOptions: string[] = ['Option 1', 'Option 2', 'Option 3'];
 
   onSubmit() {
     this.submitted = true;
