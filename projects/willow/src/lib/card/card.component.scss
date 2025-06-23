@@ -1,0 +1,12 @@
+.card-container {
+    width: 100%;
+    margin: 2rem;
+    background-color: white;
+    display: flex;
+    border-radius: 2px;
+
+    .card-content {
+        padding: 36px;
+        display: flex;
+    }
+}

@@ -19,3 +19,4 @@ export * from './lib/form-select/form-select.component';
 export * from './lib/form-textarea/form-textarea.component';
 export * from './lib/alert/alert.component';
 export * from './lib/button/button.component';
+export * from './lib/card/card.component';
